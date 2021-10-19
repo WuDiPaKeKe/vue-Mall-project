@@ -1,60 +1,28 @@
-bug: api.js export const getMockUsers = () => mockAxios.get("/users")
-# 项目需求：请求进度条
-[请求进度条包的地址](https://www.npmjs.com/package/nprogress)
-
-- `npm i nprogress` 下载进度条包（生产的包，上线用户也是要看到的）
-
-- main.js --->直接引入 `nprogress`包
-   ```js
-   import "nprogress/nprogress.css"
-   ```
-
-- apiAxios.js/mockAxios.js ---> 引入 `nprogress`包
-   ```js
-   import NProgress from "nprogress"
-   ```
-
-- apiAxios.js/mockAxios.js---> 调用一下`nprogress`包
-    在拦截器里调用一下
-
+# 将静态页面拆分为静态组件
+- components/header/header.vue & components/footer/footer.vue ---> 按此创建相对应的文件夹和文件
+- App.vue ---> 引入header.vue & footer.vue 两个文件
 ```js
-   // 拦截器
-    apiAxios.interceptors.request.use(function (config) {
-    // 开启进度条
-    NProgress.start();
+import header from "components/header/header"
+import footer from "components/footer/footer"
 
-    // 在发送请求之前做些什么
-    return config;
-  });
-
-    // 添加响应拦截器
-    apiAxios.interceptors.response.use(function (response) {
-    // 关闭进度条
-    NProgress.done();
-
-    // 对响应数据做点什么
-    return response;
-  }, function (error) {
-    // 关闭进度条
-    NProgress.done();
-
-    // 对响应错误做点什么
-    return Promise.reject(error);
-  });
- ```
-
- ## 测试请求进度条是否成功
- - App.vue ---> 用mock测试发送请求是否成功
- ```js
-    // 引入mock
-   import {getMockUsers} from "api/api"
-
-  export default {
+```
+- App.vue ---> 在script里 定义 header & footer 组件
+```js
+export default {
     name: 'App',
-    // 在mounted 生命周期里发送 mock的请求
-    async mounted() {
-      await getMockUsers()
+    // 定义header和footer组件
+    components:{
+      "mall-header":header,
+      "mall-footer":footer
     }
-
   }
- ```
+
+```
+-  App.vue ---> 在template模板里写入header & footer组件
+```js
+<div id="app">
+    <mall-header></mall-header>
+    <mall-footer></mall-footer>
+  </div>
+```
+页面显示header和footer表示成功

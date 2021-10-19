@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    app
+    <mall-header></mall-header>
+    <mall-footer></mall-footer>
   </div>
 </template>
 
 <script>
-  import {getMockUsers} from "api/api"
+import header from "components/header/header"
+import footer from "components/footer/footer"
   export default {
     name: 'App',
-    async mounted() {
-      await getMockUsers()
+    // 定义header和footer组件
+    components:{
+      "mall-header":header,
+      "mall-footer":footer
     }
-
   }
 </script>
 
