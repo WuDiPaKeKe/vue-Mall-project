@@ -9,12 +9,12 @@ bug: api.js export const getMockUsers = () => mockAxios.get("/users")
    import "nprogress/nprogress.css"
    ```
 
-- apiAxios.js/mockAxios.js ---> 引入 `nprogress`包
+- api/apiAxios.js/mockAxios.js ---> 引入 `nprogress`包
    ```js
    import NProgress from "nprogress"
    ```
 
-- apiAxios.js/mockAxios.js---> 调用一下`nprogress`包
+- api/apiAxios.js/mockAxios.js---> 调用一下`nprogress`包
     在拦截器里调用一下
 
 ```js
