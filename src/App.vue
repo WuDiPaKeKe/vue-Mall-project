@@ -1,7 +1,8 @@
 <template>
   <div id="app">
     <mall-header></mall-header>
-    <mall-footer></mall-footer>
+    <router-view></router-view>
+    <mall-footer v-if = "!$route.meta.hideFooter"></mall-footer>
   </div>
 </template>
 
