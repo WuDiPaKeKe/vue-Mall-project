@@ -9,7 +9,6 @@ import footer from "components/footer/footer"
 - App.vue ---> 在script里 定义 header & footer 组件
 ```js
 export default {
->>>>>>> 栗山未来
     name: 'App',
     // 定义header和footer组件
     components:{
