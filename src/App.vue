@@ -5,10 +5,14 @@
 </template>
 
 <script>
-export default {
-  name: 'App',
+  import {getMockUsers} from "api/api"
+  export default {
+    name: 'App',
+    async mounted() {
+      await getMockUsers()
+    }
 
-}
+  }
 </script>
 
 <style scoped>

@@ -5,4 +5,4 @@ import mockAxios from "./mockAxios";
 export const getContactList =() => apiAxios.get("/contactList")
 
 // 获取mock用户
-export const getContactList = () => mockAxios.get("/users")
+export const getMockUsers = () => mockAxios.get("/users")
