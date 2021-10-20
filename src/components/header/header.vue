@@ -38,7 +38,7 @@
                     </form>
                 </div>
             </div>
-        </header>
+    </header>
 </template>
 
 <script>
